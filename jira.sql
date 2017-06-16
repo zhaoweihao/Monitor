@@ -1,4 +1,4 @@
-//已关闭JIRA，明细过滤，处理周期：
+----已关闭JIRA，明细过滤，处理周期：
 SELECT
 	concat(b.pkey, '-', a.issuenum) AS "JIRA编号",
 	b.pname AS "Project",
@@ -36,7 +36,7 @@ ORDER BY
 LIMIT 10000
 
 
-//未关闭JIRA，明细过滤，处理周期
+---未关闭JIRA，明细过滤，处理周期
 SELECT
 	concat(b.pkey, '-', a.issuenum) AS "JIRA编号",
 	b.pname AS "Project",
@@ -74,7 +74,7 @@ ORDER BY
 LIMIT 10000
 
 
-//项目+问题级别+平均处理周期
+---项目+问题级别+平均处理周期
 SELECT
 	项目名称,
 	max(CASE LEVEL WHEN 'A-致命' THEN `平均处理周期（天）` ELSE null END ) "A-致命（天）",
@@ -129,7 +129,7 @@ GROUP BY
 	项目名称;
 展示为Null的数据，检查是否相应级别的单号为0 
   
-//项目名称+不同级别的BUG数目+总平均处理周期
+---项目名称+不同级别的BUG数目+总平均处理周期
 SELECT 
     gg.`Project` "项目名称",
     max(case level when 'A-致命' then count else 0 end) "A-致命",
